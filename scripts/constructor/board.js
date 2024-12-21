@@ -1,0 +1,20 @@
+import { LevelRender } from "../Classes/LevelRender.js";
+import './types.js';
+import { TopMenu } from './part/TopMenu.js';
+import { BoardInfo } from "./part/BoardInfo.js";
+import { SideMenu } from "./part/SideMenu.js";
+import { Main } from "./part/Main.js";
+import { ControlBtn } from "./part/ControlBtn.js";
+import { BackForwardAction } from "./part/BackForwardAction.js";
+const gameData = JSON.parse(localStorage.getItem('gameData'));
+const { set_desc } = await import(`../../sources/graphics_set/${gameData.graphics_set}/set_description.js`);
+Main.init(gameData);
+LevelRender.setData(Main.LEVEL);
+LevelRender.make(false);
+SideMenu.render(set_desc).listener();
+TopMenu.listener();
+ControlBtn.make();
+Main.handler();
+BoardInfo.init().update(true);
+BackForwardAction.init().listener();
+//# sourceMappingURL=board.js.map

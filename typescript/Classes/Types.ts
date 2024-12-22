@@ -82,3 +82,8 @@ type ActionDirection = "up" | "down" | "left" | "right" | false;
 interface IModel {
     element: HTMLDivElement
 }
+
+// function showId(id: string | number): void {
+//     const cardTitle: HTMLSpanElement = document.getElementById('card')!;
+//     cardTitle.innerText = id as unknown as string;
+// }

@@ -2,7 +2,8 @@ import { Level } from "./Classes/Level.js";
 import { goToPage, localStorageClear } from "./Classes/Helpers.js";
 localStorageClear();
 document.getElementById('form-choose').
-    addEventListener('submit', (event) => {
+    addEventListener('submit', formHandler);
+function formHandler(event) {
     event.preventDefault();
     let file = new FormData(event.target).get('file');
     if (!file)
@@ -13,7 +14,7 @@ document.getElementById('form-choose').
         localStorage.setItem("gameData", reader.result);
         window.open(goToPage(), '_self');
     };
-});
+}
 const levelsList = document.getElementById('levels-list');
 for (let num = 1; num <= Level.count; num++) {
     let { levelData } = await import(`../sources/levels/data/${num}.js`);

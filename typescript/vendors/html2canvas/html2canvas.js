@@ -1,3 +1,5 @@
+// @ts-nocheck
+// @ts-ignore
 /*!
  * html2canvas 1.4.1 <https://html2canvas.hertzen.com>
  * Copyright (c) 2022 Niklas von Hertzen <https://hertzen.com>
@@ -194,7 +196,7 @@ for (var i$2 = 0; i$2 < chars$2.length; i$2++) {
     lookup$2[chars$2.charCodeAt(i$2)] = i$2;
 }
 
-/*
+/*!
  * utrie 1.0.2 <https://github.com/niklasvh/utrie>
  * Copyright (c) 2022 Niklas von Hertzen <https://hertzen.com>
  * Released under MIT License

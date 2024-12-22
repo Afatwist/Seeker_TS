@@ -5,23 +5,27 @@ import { goToPage, localStorageClear } from "./Classes/Helpers.js";
 
 localStorageClear();
 // ####################################################################
+
 /* Обработчик формы выбора пользовательского файла */
 document.getElementById('form-choose')!.
-    addEventListener('submit', (event) => {
-        event.preventDefault();
+    addEventListener('submit', formHandler);
 
-        let file = new FormData(event.target as HTMLFormElement).get('file');
-        if (!file) return;
+function formHandler(event: SubmitEvent): any {
+    event.preventDefault();
 
-        let reader = new FileReader();
+    let file = new FormData(event.target as HTMLFormElement).get('file');
+    if (!file) return;
 
-        reader.readAsText(file as Blob);
+    let reader = new FileReader();
 
-        reader.onload = () => {
-            localStorage.setItem("gameData", reader.result as string);
-            window.open(goToPage(), '_self');
-        };
-    });
+    reader.readAsText(file as Blob);
+
+    reader.onload = () => {
+        localStorage.setItem("gameData", reader.result as string);
+        window.open(goToPage(), '_self');
+    };
+
+}
 
 
 // ################################################################

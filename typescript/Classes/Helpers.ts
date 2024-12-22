@@ -9,6 +9,14 @@ export function goToPage(): string {
     return baseUrl;
 }
 
+// /** Переход по указанной ссылке 
+//  * @param link - страница перехода
+//  * @param itemSet - добавить указанное значение в LocalStorage 
+// */
+// export function openLink(link: string, itemSet: string | false = false): void {
+//     if (itemSet) localStorage.setItem('page', itemSet);
+//     window.open(`pages/${link}.html`, '_self');
+// }
 
 export const baseUrl = '/seeker/';
 

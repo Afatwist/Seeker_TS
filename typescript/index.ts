@@ -3,15 +3,23 @@
 localStorage.clear();
 
 document.getElementById('in-game')!.addEventListener('click', () => {
-    localStorage.setItem('page', 'game');
-    window.open('pages/file-choose.html', '_self');
+    openLink('file-choose', 'game');
 });
 
 document.getElementById('constructor')!.addEventListener('click', () => {
-    localStorage.setItem('page', 'constructor');
-    window.open('pages/constructor/constructor.html', '_self');
+    openLink('constructor/constructor', 'constructor');
 });
 
 document.getElementById('how-play')!.addEventListener('click', () => {
-    window.open('pages/how-play.html', '_self');
-});
+    openLink('how-play');
+})
+
+
+/** Переход по указанной ссылке 
+ * @param link - страница перехода
+ * @param itemSet - добавить указанное значение в LocalStorage 
+*/
+function openLink(link: string, itemSet: string | false = false): void {
+    if (itemSet) localStorage.setItem('page', itemSet);
+    window.open(`pages/${link}.html`, '_self');
+}
